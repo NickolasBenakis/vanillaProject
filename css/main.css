@@ -1,8 +1,9 @@
 html {
-  text-align: center; }
+  text-align: center;
+  font-family: Helvetica, sans-serif; }
 
 body {
-  background: #428bca;
+  background: linear-gradient(#e66465, #9198e5);
   font-size: Helvetica;
   text-align: center; }
 
@@ -11,12 +12,11 @@ header {
   flex-direction: column-reverse;
   justify-content: center;
   position: fixed;
-  background: #428bca;
+  background: linear-gradient(#e66465, #9198e5);
   width: 100%;
   top: 0; }
 
 .grass-container {
   text-align: center;
   display: grid;
-  grid-template-columns: 50% 50%;
-  background-color: #76a82c; }
+  grid-template-columns: 50% 50%; }

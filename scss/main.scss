@@ -1,11 +1,14 @@
 $primary: #428bca;
+$main: linear-gradient(#e66465, #9198e5);
 
 html{
     text-align: center;
+    font-family: Helvetica, sans-serif;
+    
 }
 
 body{
-    background: $primary;
+    background: $main;
     font-size: Helvetica;
     text-align: center;
 }
@@ -14,7 +17,7 @@ header {
     flex-direction: column-reverse;
     justify-content: center;
     position: fixed;
-    background: $primary;
+    background: $main;
     width: 100%;
     top: 0;
 }
@@ -22,6 +25,5 @@ header {
     text-align: center;
     display: grid;
     grid-template-columns: 50% 50%;
-    background-color: rgb(118, 168, 44);
     
 }
