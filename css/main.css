@@ -1,0 +1,22 @@
+html {
+  text-align: center; }
+
+body {
+  background: #428bca;
+  font-size: Helvetica;
+  text-align: center; }
+
+header {
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: center;
+  position: fixed;
+  background: #428bca;
+  width: 100%;
+  top: 0; }
+
+.grass-container {
+  text-align: center;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  background-color: #76a82c; }

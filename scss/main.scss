@@ -1,0 +1,27 @@
+$primary: #428bca;
+
+html{
+    text-align: center;
+}
+
+body{
+    background: $primary;
+    font-size: Helvetica;
+    text-align: center;
+}
+header {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+    position: fixed;
+    background: $primary;
+    width: 100%;
+    top: 0;
+}
+.grass-container {
+    text-align: center;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    background-color: rgb(118, 168, 44);
+    
+}
