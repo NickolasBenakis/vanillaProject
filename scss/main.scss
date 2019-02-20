@@ -2,7 +2,8 @@ $primary: #428bca;
 $main: linear-gradient(#e66465, #9198e5);
 $secondary: linear-gradient(#49a5bf, #9cc3df);
 $myFont: Helvetica, sans-serif;
-$myFont-size: 14px;
+$myFont-size: 24px;
+
 html{
     text-align: center;
     font-family: $myFont;
@@ -41,13 +42,19 @@ header {
         text-align: center;
 
         input {
-            width: 200px;
+            padding: 0;
+            height: 50px;
+            width: 240px;
+            line-height: 70px;
+            border-radius: 0;
             border-style: none;
+            border-bottom: 1px solid rgb(244, 244, 244);
             outline: none;
             background-color: transparent;
+            color: #333333;
             font-size: $myFont-size;
             font-family: $myFont;
-
+            user-select: none;
         }
 
     }
@@ -65,9 +72,9 @@ header {
 // Media Queries
 
 @media (min-width: 480px) {
-    body {
-    /* something
-    //   background-color: lightgreen;
-    */
-    }
+    // body {
+    // /* something
+    // //   background-color: lightgreen;
+    // */
+    // }
 }

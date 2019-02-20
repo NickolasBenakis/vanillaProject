@@ -31,20 +31,21 @@ header {
     grid-column-start: auto;
     text-align: center; }
     .body-container form input {
-      width: 200px;
+      padding: 0;
+      height: 50px;
+      width: 240px;
+      line-height: 70px;
+      border-radius: 0;
       border-style: none;
+      border-bottom: 1px solid #f4f4f4;
       outline: none;
       background-color: transparent;
-      font-size: 14px;
-      font-family: Helvetica, sans-serif; }
+      color: #333333;
+      font-size: 24px;
+      font-family: Helvetica, sans-serif;
+      user-select: none; }
 
 .footer-container {
   text-align: center;
   display: grid;
   grid-template-columns: 50% 50%; }
-
-@media (min-width: 480px) {
-  body {
-    /* something
-    //   background-color: lightgreen;
-    */ } }
