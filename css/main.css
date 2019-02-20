@@ -3,7 +3,9 @@ html {
   font-family: Helvetica, sans-serif; }
 
 body {
-  background: linear-gradient(#e66465, #9198e5);
+  margin: 20px;
+  max-height: 60%;
+  background: linear-gradient(#49a5bf, #9cc3df);
   font-size: Helvetica;
   text-align: center; }
 
@@ -12,11 +14,37 @@ header {
   flex-direction: column-reverse;
   justify-content: center;
   position: fixed;
-  background: linear-gradient(#e66465, #9198e5);
+  background: linear-gradient(#49a5bf, #9cc3df);
   width: 100%;
   top: 0; }
 
-.grass-container {
+.body-container {
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 80%;
+  justify-items: center;
+  max-height: 1080px; }
+  .body-container form {
+    grid-column-start: auto;
+    text-align: center; }
+    .body-container form input {
+      width: 200px;
+      border-style: none;
+      outline: none;
+      background-color: transparent;
+      font-size: 14px;
+      font-family: Helvetica, sans-serif; }
+
+.footer-container {
   text-align: center;
   display: grid;
   grid-template-columns: 50% 50%; }
+
+@media (min-width: 480px) {
+  body {
+    /* something
+    //   background-color: lightgreen;
+    */ } }
