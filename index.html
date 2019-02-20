@@ -8,11 +8,21 @@
 
 <body>
     <div class="body-container">
-        <form action="">
-            <input type="search" name="" id="" placeholder='Enter a City...'>
+        <form>
+            <input type="text" name="" id="input_city" placeholder='Enter a City...' onkeyup="myFunction()" >
+            <div class="list-container">
+                <ul id="list-cities">
+                    <li>Athens</li>
+                    <li>London</li>
+                    <li>Paris</li>
+                    <li>Barcelona</li>
+                </ul>
+                <!-- <p id="demo"></p> -->
+            </div>
         </form>
-    </div>
 
+    </div>
+    <script src="./js/index.js"></script>
 </body>
 <!-- <footer>
     <div class="footer-container">

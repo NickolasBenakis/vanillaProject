@@ -33,11 +33,12 @@ header {
     width: 100%;
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 80%;
+    grid-template-rows: 80% ;
     justify-items: center;
     max-height: 1080px;
 
     form {
+        height: 200px;
         grid-column-start: auto;
         text-align: center;
 
@@ -57,6 +58,25 @@ header {
             user-select: none;
         }
 
+    }
+
+    .list-container{
+        grid-column-start: auto;
+        text-align: center;
+        //border-bottom-style: dashed;
+        //border-left-style: dashed;
+        //border-right-style: dashed;
+    }
+    ul {
+        display: inline;
+        list-style: none;
+
+        li{
+            border: black;
+            border-style: solid;
+            padding: 10px;
+        }
+        
     }
 
 }
