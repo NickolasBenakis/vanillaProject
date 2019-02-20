@@ -24,21 +24,25 @@
 // }
 
 
-function myFunction(){
+function filterCity() {
 
+    //const list = document.getElementById('list-cities');
+    const input = document.getElementById('input_city');
+    const filter = input.value.toLowerCase();
+    const cities = document.getElementsByTagName('li')
+    // document.getElementsByTagName('li')[0].innerText; paizei ayti i malakia
 
-const list = document.getElementById('list-cities');
-const input = document.getElementById('input_city');
-const filter = input.value.toLowerCase();
-const cities = document.getElementsByTagName('li')
-// document.getElementsByTagName('li')[0].innerText; paizei ayti i malakia
-
-for (let i = 0; i < cities.length; i++) {
-    const title = cities[i].innerText;
-    if (title.toLowerCase().indexOf(filter) != -1) {
-        cities[i].style.display = 'block';
-    } else {
-        cities[i].style.display = 'none';
+    for (let i = 0; i < cities.length; i++) {
+        const title = cities[i].innerText;
+        if (title.toLowerCase().indexOf(filter) != -1) {
+            cities[i].style.display = 'block';
+            cities[i].style.cursor = 'pointer';
+           // cities[i].style.animation = 'bounce .5s alternate infinite ease-out';
+        } else {
+            cities[i].style.display = 'none';
         }
+    }
+    if (input == undefined || input == null) {
+        cities[i].style.animation = '';
     }
 }
