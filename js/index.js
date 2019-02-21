@@ -62,10 +62,11 @@ function getMetrics(city) {
         if (http.readyState == 4 && http.status == 200) {
             console.log(JSON.parse(http.responseText));
             const res = JSON.parse(http.responseText);
-            const temp_max = res.main.temp_max;
-            const temp_min = res.main.temp_min;
-            document.getElementById('max').innerHTML = `Temp Max: ${temp_max} F`
-            document.getElementById('min').innerHTML = `Temp Min: ${temp_min} F`
+            // Convert Kelvin -> Celcious
+            const temp_max = Math.round((res.main.temp_max) - 273.15);
+            const temp_min = Math.round((res.main.temp_min) - 273.15);
+            document.getElementById('max').innerHTML = `Temp Max: ${temp_max} C`
+            document.getElementById('min').innerHTML = `Temp Min: ${temp_min} C`
 
         }
     }
