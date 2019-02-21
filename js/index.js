@@ -34,15 +34,19 @@ function filterCity() {
 
     for (let i = 0; i < cities.length; i++) {
         const title = cities[i].innerText;
-        if (title.toLowerCase().indexOf(filter) != -1) {
+        if (filter == "" || filter == null) {
+            cities[i].style.animation = '.5s alternate ease-out';
+            cities[i].style.animationPlayState = "paused";
+        }
+        else if (title.toLowerCase().indexOf(filter) != -1) {
             cities[i].style.display = 'block';
             cities[i].style.cursor = 'pointer';
-           // cities[i].style.animation = 'bounce .5s alternate infinite ease-out';
-        } else {
+            cities[i].style.animation = 'bounce .5s alternate infinite ease-out';
+
+        }
+        else {
             cities[i].style.display = 'none';
         }
     }
-    if (input == undefined || input == null) {
-        cities[i].style.animation = '';
-    }
+
 }
