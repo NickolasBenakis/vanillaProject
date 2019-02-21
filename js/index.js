@@ -1,7 +1,7 @@
+let isOpen;
 
 function filterCity() {
-
-    //const list = document.getElementById('list-cities');
+    isOpen = false;
     const input = document.getElementById('input_city');
     const filter = input.value.toLowerCase();
     const cities = document.getElementsByTagName('li')
@@ -31,15 +31,19 @@ function filterCity() {
 
 
 function triggerModal(mycity, cityName) {
+
     const dialog = document.getElementById('favDialog');
-    // const metrics = document.getElementsByTagName('metrics');
     const cancelButton = document.getElementById('return');
     mycity.addEventListener('click', () => {
-        getMetrics(cityName);
-        dialog.showModal();
+        if (isOpen == false) {
+            getMetrics(cityName);
+            dialog.showModal();
+            isOpen = true;
+        }
     });
     cancelButton.addEventListener('click', () => {
         dialog.close();
+        isOpen = !isOpen;
     });
 }
 
@@ -48,13 +52,12 @@ function getCity(mycity) {
     const cityName = mycity.innerText;
     console.log(cityName);
     triggerModal(mycity, cityName);
-
 }
 
 function getMetrics(city) {
     console.log("fernw kairo");
     const http = new XMLHttpRequest();
-    const apiKey = 'c7eb6d72320feed6f49470cab2537dd6';
+    const apiKey = `c7eb6d72320feed6f49470cab2537dd6`;
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`;
     http.open("GET", url);
     http.send();
@@ -62,11 +65,10 @@ function getMetrics(city) {
         if (http.readyState == 4 && http.status == 200) {
             console.log(JSON.parse(http.responseText));
             const res = JSON.parse(http.responseText);
-            // Convert Kelvin -> Celcious
             const temp_max = Math.round((res.main.temp_max) - 273.15);
             const temp_min = Math.round((res.main.temp_min) - 273.15);
-            document.getElementById('max').innerHTML = `Temp Max: ${temp_max} C`
-            document.getElementById('min').innerHTML = `Temp Min: ${temp_min} C`
+            document.getElementById('max').innerHTML = `Temp Max:  ${temp_max} C`
+            document.getElementById('min').innerHTML = `Temp Min:  ${temp_min} C`
 
         }
     }

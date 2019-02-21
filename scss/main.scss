@@ -7,7 +7,6 @@ $myFont-size: 24px;
 html{
     text-align: center;
     font-family: $myFont;
-    
 }
 
 body{
@@ -63,9 +62,7 @@ header {
     .list-container{
         grid-column-start: auto;
         text-align: center;
-        //border-bottom-style: dashed;
-        //border-left-style: dashed;
-        //border-right-style: dashed;
+
     }
     ul {
         display: inline;
@@ -89,23 +86,11 @@ dialog {
 
 
 }
-.footer-container {
-    text-align: center;
-    display: grid;
-    grid-template-columns: 50% 50%;
-    
-}
-
-
 
 // Media Queries
 
 @media (min-width: 480px) {
-    // body {
-    // /* something
-    // //   background-color: lightgreen;
-    // */
-    // }
+
 }
 @media screen and (min-width:701px) {
     	@keyframes bounce {

@@ -2,14 +2,15 @@
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="css/main.css">
     <link href="https://unpkg.com/ionicons@4.4.4/dist/css/ionicons.min.css" rel="stylesheet">
 </head>
 
 <body>
     <div class="body-container">
         <form>
-            <input type="text" autocomplete="off" autofocus id="input_city" placeholder='Enter a City...' onkeyup="filterCity()">
+            <input type="text" autocomplete="off" autofocus id="input_city" placeholder='Enter a City...'
+                onkeyup="filterCity()">
             <div class="list-container">
                 <ul id="list-cities">
                     <li>Athens</li>
@@ -17,7 +18,6 @@
                     <li>Paris</li>
                     <li>Barcelona</li>
                 </ul>
-                <!-- <p id="demo"></p> -->
             </div>
         </form>
 
@@ -27,10 +27,8 @@
             <table id="metrics">
                 <th>Metrics</th>
                 <tr id="max">
-                    <td>Max</td>
                 </tr>
                 <tr id="min">
-                    <td>Min</td>
                 </tr>
             </table>
         </form>
@@ -38,16 +36,5 @@
     </dialog>
     <script src="./js/index.js"></script>
 </body>
-<!-- <footer>
-    <div class="footer-container">
-        <div class="left-container">
-            Super mario Bros
-        </div>
-        <div class="right-container">
-            facebook
-        </div>
-
-    </div>
-</footer> -->
 
 </html>
