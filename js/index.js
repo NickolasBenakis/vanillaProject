@@ -1,29 +1,4 @@
 
-
-//let city = document.getElementById('city').value;
-//city.addEventListener("city", getData(city));
-
-// function getData() {
-//     // console.log(city);
-//     // let city = document.getElementById('input_city').value;
-//     let city = document.querySelector('input').value;
-//     console.log(city);
-//     if (city === "Athens") {
-//         const http = new XMLHttpRequest();
-//         const apiKey = 'c7eb6d72320feed6f49470cab2537dd6';
-//         //const url = `api.openweathermap.org/data/2.5/weather?q=London`;
-//         const url2 = 'https://api.openweathermap.org/data/2.5/weather?q=London&appid=c7eb6d72320feed6f49470cab2537dd6';
-//         http.open("GET", url2);
-//         http.send();
-//         http.onreadystatechange = (e) => {
-//             console.log(http.responseText);
-//             console.log(e);
-//         }
-//     }
-
-// }
-
-
 function filterCity() {
 
     //const list = document.getElementById('list-cities');
@@ -47,7 +22,6 @@ function filterCity() {
                 getCity(cities[i]);
 
             }
-
         }
         else {
             cities[i].style.display = 'none';
@@ -55,22 +29,14 @@ function filterCity() {
     }
 }
 
-// function getMetrics() {
-//     const cities = document.getElementsByTagName('li');
-//     Array.from(cities).forEach(element => {
-//         if (element.style.display = 'block') {
-//             console.log(element);
 
-//         }
-//     });
-// }
-
-function triggerModal(mycity,cityName) {
+function triggerModal(mycity, cityName) {
     const dialog = document.getElementById('favDialog');
+    // const metrics = document.getElementsByTagName('metrics');
     const cancelButton = document.getElementById('return');
     mycity.addEventListener('click', () => {
-        dialog.showModal();
         getMetrics(cityName);
+        dialog.showModal();
     });
     cancelButton.addEventListener('click', () => {
         dialog.close();
@@ -81,9 +47,9 @@ function triggerModal(mycity,cityName) {
 function getCity(mycity) {
     const cityName = mycity.innerText;
     console.log(cityName);
-    triggerModal(mycity,cityName);
-}
+    triggerModal(mycity, cityName);
 
+}
 
 function getMetrics(city) {
     console.log("fernw kairo");
@@ -94,7 +60,13 @@ function getMetrics(city) {
     http.send();
     http.onreadystatechange = (e) => {
         if (http.readyState == 4 && http.status == 200) {
-            console.log(http.responseText);
+            console.log(JSON.parse(http.responseText));
+            const res = JSON.parse(http.responseText);
+            const temp_max = res.main.temp_max;
+            const temp_min = res.main.temp_min;
+            document.getElementById('max').innerHTML = `Temp Max: ${temp_max} F`
+            document.getElementById('min').innerHTML = `Temp Min: ${temp_min} F`
+
         }
     }
 }

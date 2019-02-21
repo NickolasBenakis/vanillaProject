@@ -9,7 +9,7 @@
 <body>
     <div class="body-container">
         <form>
-            <input type="text" name="" id="input_city" placeholder='Enter a City...' onkeyup="filterCity()">
+            <input type="text" autocomplete="off" autofocus id="input_city" placeholder='Enter a City...' onkeyup="filterCity()">
             <div class="list-container">
                 <ul id="list-cities">
                     <li>Athens</li>
@@ -24,13 +24,17 @@
     </div>
     <dialog id="favDialog">
         <form method="dialog">
-                <p>skata</p>
-                <ul id="metrics">
-                    
-                </ul>
-            <button id="return">Cancel</button>
-                
+            <table id="metrics">
+                <th>Metrics</th>
+                <tr id="max">
+                    <td>Max</td>
+                </tr>
+                <tr id="min">
+                    <td>Min</td>
+                </tr>
+            </table>
         </form>
+        <button id="return">Cancel</button>
     </dialog>
     <script src="./js/index.js"></script>
 </body>

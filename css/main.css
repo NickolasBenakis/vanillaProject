@@ -56,6 +56,11 @@ header {
       border-style: solid;
       padding: 10px; }
 
+dialog {
+  width: 200px;
+  padding: 50px;
+  table-layout: fixed; }
+
 .footer-container {
   text-align: center;
   display: grid;
