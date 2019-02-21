@@ -36,7 +36,7 @@ function triggerModal(mycity, cityName) {
     const cancelButton = document.getElementById('return');
     mycity.addEventListener('click', () => {
         if (isOpen == false) {
-            getMetrics(cityName);
+            // getMetrics(cityName);
             dialog.showModal();
             isOpen = true;
         }
@@ -51,6 +51,7 @@ function triggerModal(mycity, cityName) {
 function getCity(mycity) {
     const cityName = mycity.innerText;
     console.log(cityName);
+    getMetrics(cityName);
     triggerModal(mycity, cityName);
 }
 
