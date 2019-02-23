@@ -1,31 +1,46 @@
 {
-  "name": "vanilla",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "author": "nickolasbenakis",
-  "license": "ISC",
-  "scripts": {
-    "start": "npm run build",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "sass": "node-sass -w scss/ -o css/",
-    "build": "webpack-dev-server",
-    "build:prod": "webpack -p"
-  },
-  "dependencies": {
-    "node-sass": "^4.11.0"
-  },
-  "devDependencies": {
-    "babel-core": "^6.24.0",
-    "babel-loader": "^6.4.1",
-    "babel-preset-es2015": "^6.24.0",
-    "css-loader": "^0.26.2",
-    "eslint": "^5.14.1",
-    "extract-text-webpack-plugin": "^2.1.0",
-    "sass-loader": "^6.0.3",
-    "style-loader": "^0.13.2",
-    "webpack": "2.2.1",
-    "webpack-dev-server": "2.4.1",
-    "webpack-node-externals": "^1.7.2"
-  }
+    "name": "vanilla",
+    "version": "1.0.0",
+    "description": "",
+    "private": true,
+    "author": "nickolasbenakis",
+    "license": "ISC",
+    "scripts": {
+        "start": "npm run build",
+        "test": "jest --watch",
+        "sass": "node-sass -w scss/ -o css/",
+        "build": "webpack-dev-server --mode development --open",
+        "build:prod": "webpack --mode production"
+    },
+    "dependencies": {
+        "lodash": "^4.17.11",
+        "node-sass": "^4.11.0"
+    },
+    "devDependencies": {
+        "@babel/core": "^7.3.3",
+        "@babel/preset-env": "^7.3.1",
+        "babel-jest": "^24.1.0",
+        "babel-loader": "^8.0.5",
+        "babel-plugin-transform-es2015-modules-commonjs": "6.26.2",
+        "babel-preset-es2015": "6.24.0",
+        "css-loader": "^0.26.4",
+        "eslint": "^5.14.1",
+        "extract-text-webpack-plugin": "^2.1.0",
+        "identity-obj-proxy": "^3.0.0",
+        "jest": "^24.1.0",
+        "mini-css-extract-plugin": "^0.5.0",
+        "mocha": "^6.0.1",
+        "sass-loader": "^6.0.7",
+        "style-loader": "^0.13.2",
+        "webpack": "4.20.2",
+        "webpack-cli": "^3.2.3",
+        "webpack-dev-server": "^3.2.0",
+        "webpack-node-externals": "^1.7.2"
+    },
+    "jest": {
+        "moduleNameMapper": {
+            "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
+            "\\.(css|sass)$": "<rootDir>/src/index.js"
+        }
+    }
 }

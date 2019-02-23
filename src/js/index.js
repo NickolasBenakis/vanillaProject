@@ -1,6 +1,5 @@
 import '../scss/main.scss';
 
-let isOpen ;
 const dialog = document.getElementById('favDialog');
 const cancelButton = document.getElementById('return');
 
@@ -25,11 +24,12 @@ const filterCity = () => {
             city.style.display = 'block';
             city.style.cursor = 'pointer';
             city.style.animation = 'bounce .8s alternate infinite ease-out';
-            getCity(city);
+            triggerModal(city)
         } else {
             city.style.display = 'none';
         }
     });
+
 }
 
 
@@ -46,11 +46,6 @@ const triggerModal = (mycity) => {
         dialog.close();
         isOpen = !isOpen;
     });
-}
-
-
-const getCity = (mycity) => {
-    triggerModal(mycity);
 }
 
 const getMetrics = (city) => {
