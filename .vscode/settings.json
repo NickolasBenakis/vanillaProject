@@ -5,4 +5,11 @@
         "editor.formatOnSave": false
     },
     "eslint.autoFixOnSave": true,
+    "eslint.alwaysShowStatus": true,
+    "indentRainbow.indentSetter": {
+        "javascript": {
+            "tabSize": 4,
+            "insertSpaces": true
+        }
+    }
 }
