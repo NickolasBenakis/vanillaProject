@@ -1,17 +1,18 @@
 {
     "env": {
-        "node":true,
+        "node": true,
         "browser": true,
         "es6": true
     },
-    "extends": "google",
     "globals": {
         "Atomics": "readable",
         "SharedArrayBuffer": "readable"
     },
+    "parserOptions": {
+        "sourceType": "module"
+    },
     "rules": {
-        "no-restricted-imports":"off",
-        "no-duplicate-imports":"warn"
-        
+        "no-duplicate-imports": "warn",
+        "max-lines": "warn"
     }
 }
