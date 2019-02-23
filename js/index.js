@@ -1,4 +1,10 @@
+import '../scss/main.scss';
+
 let isOpen;
+
+document.getElementById('input_city').onkeyup = () => {
+    filterCity();
+}
 
 function filterCity() {
     isOpen = false;
@@ -20,7 +26,6 @@ function filterCity() {
             cities[i].style.animation = 'bounce .8s alternate infinite ease-out';
             if (filter.toLowerCase() === title.toLowerCase()) {
                 getCity(cities[i]);
-
             }
         }
         else {
@@ -30,13 +35,13 @@ function filterCity() {
 }
 
 
-function triggerModal(mycity, cityName) {
+function triggerModal(mycity) {
 
     const dialog = document.getElementById('favDialog');
     const cancelButton = document.getElementById('return');
     mycity.addEventListener('click', () => {
         if (isOpen == false) {
-            // getMetrics(cityName);
+            getMetrics(mycity.innerText);
             dialog.showModal();
             isOpen = true;
         }
@@ -51,8 +56,7 @@ function triggerModal(mycity, cityName) {
 function getCity(mycity) {
     const cityName = mycity.innerText;
     console.log(cityName);
-    getMetrics(cityName);
-    triggerModal(mycity, cityName);
+    triggerModal(mycity);
 }
 
 function getMetrics(city) {

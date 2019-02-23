@@ -3,24 +3,28 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "author": "nickolasbenakis",
+  "license": "ISC",
+  "scripts": {
+    "start": "npm run build",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "sass": "node-sass -w scss/ -o css/",
+    "build": "webpack-dev-server",
+    "build:prod": "webpack -p"
+  },
   "dependencies": {
     "node-sass": "^4.11.0"
   },
   "devDependencies": {
-    "eslint": "^5.14.1"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "sass": "node-sass -w scss/ -o css/"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/NickolasBenakis/vanillaProject.git"
-  },
-  "author": "nickolasbenakis",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/NickolasBenakis/vanillaProject/issues"
-  },
-  "homepage": "https://github.com/NickolasBenakis/vanillaProject#readme"
+    "babel-core": "^6.24.0",
+    "babel-loader": "^6.4.1",
+    "babel-preset-es2015": "^6.24.0",
+    "css-loader": "^0.26.2",
+    "eslint": "^5.14.1",
+    "extract-text-webpack-plugin": "^2.1.0",
+    "sass-loader": "^6.0.3",
+    "style-loader": "^0.13.2",
+    "webpack": "2.2.1",
+    "webpack-dev-server": "2.4.1"
+  }
 }
