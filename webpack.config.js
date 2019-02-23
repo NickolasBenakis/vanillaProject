@@ -1,8 +1,5 @@
 let path = require('path');
-let webpack = require('webpack');
 let ExtractTextPlugin = require('extract-text-webpack-plugin');
-const nodeExternals = require('webpack-node-externals');
-
 let extractPlugin = new ExtractTextPlugin({
     filename: 'main.css'
 });

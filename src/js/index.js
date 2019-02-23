@@ -10,7 +10,7 @@ function filterCity() {
     isOpen = false;
     const input = document.getElementById('input_city');
     const filter = input.value.toLowerCase();
-    const cities = document.getElementsByTagName('li')
+    const cities = document.getElementsByTagName('li');
 
     for (let i = 0; i < cities.length; i++) {
         const title = cities[i].innerText;
@@ -24,9 +24,7 @@ function filterCity() {
             cities[i].style.display = 'block';
             cities[i].style.cursor = 'pointer';
             cities[i].style.animation = 'bounce .8s alternate infinite ease-out';
-            if (filter.toLowerCase() === title.toLowerCase()) {
-                getCity(cities[i]);
-            }
+            getCity(cities[i]);
         }
         else {
             cities[i].style.display = 'none';
@@ -74,7 +72,6 @@ function getMetrics(city) {
             const temp_min = Math.round((res.main.temp_min) - 273.15);
             document.getElementById('max').innerHTML = `Temp Max:  ${temp_max} C`
             document.getElementById('min').innerHTML = `Temp Min:  ${temp_min} C`
-
         }
     }
 }

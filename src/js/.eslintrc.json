@@ -12,6 +12,10 @@
         "sourceType": "module"
     },
     "rules": {
-        "no-unreachable": "warn"
+        "no-unreachable": "error",
+        "indent": [
+            "error",
+            4
+        ]
     }
 }

@@ -16,15 +16,6 @@ body{
     font-size: Helvetica;
     text-align: center;
 }
-header {
-    display: flex;
-    flex-direction: column-reverse;
-    justify-content: center;
-    position: fixed;
-    background: $secondary;
-    width: 100%;
-    top: 0;
-}
 
 .body-container {
     align-items: center;
