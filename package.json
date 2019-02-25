@@ -7,7 +7,7 @@
     "license": "ISC",
     "scripts": {
         "start": "npm run build",
-        "test": "jest --watch",
+        "test": "jest",
         "sass": "node-sass -w scss/ -o css/",
         "build": "webpack-dev-server --mode development --open",
         "build:prod": "webpack --mode production"
@@ -18,11 +18,13 @@
     },
     "devDependencies": {
         "@babel/core": "^7.3.3",
+        "@babel/plugin-proposal-class-properties": "^7.3.3",
+        "@babel/plugin-transform-modules-commonjs": "^7.2.0",
         "@babel/preset-env": "^7.3.1",
         "babel-jest": "^24.1.0",
         "babel-loader": "^8.0.5",
-        "babel-plugin-transform-es2015-modules-commonjs": "6.26.2",
-        "babel-preset-es2015": "6.24.0",
+        "babel-plugin-dynamic-import-node": "^2.2.0",
+        "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
         "css-loader": "^0.26.4",
         "eslint": "^5.14.1",
         "extract-text-webpack-plugin": "^2.1.0",
@@ -36,11 +38,5 @@
         "webpack-cli": "^3.2.3",
         "webpack-dev-server": "^3.2.0",
         "webpack-node-externals": "^1.7.2"
-    },
-    "jest": {
-        "moduleNameMapper": {
-            "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
-            "\\.(css|sass)$": "<rootDir>/src/index.js"
-        }
     }
 }
