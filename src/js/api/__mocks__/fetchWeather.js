@@ -1,0 +1,1 @@
+export default () => Promise.resolve({ main: { max_temp: 20, min_temp: 50 } })

@@ -4,6 +4,7 @@ let extractPlugin = new ExtractTextPlugin({
     filename: 'main.css'
 });
 
+
 module.exports = {
     entry: './src/js/index.js',
     output: {

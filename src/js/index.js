@@ -1,6 +1,9 @@
 import '../scss/main.scss';
+import fetchWeather from './api/fetchWeather';
 
-let isOpen ;
+const convertToCelsius = (Kelvintemp) => Math.round((Kelvintemp) - 273.15);
+
+let isOpen;
 const dialog = document.getElementById('favDialog');
 const cancelButton = document.getElementById('return');
 
@@ -16,12 +19,12 @@ const filterCity = () => {
     Array.from(cities).forEach(city => {
 
         const cityName = city.innerText;
-        if( inputName === "" || inputName === undefined) {
+        if (inputName === "" || inputName === undefined) {
             city.style.display = 'block'
             city.style.cursor = 'default'
             city.style.animation = '.5s alternate ease-out';
             city.style.animationPlayState = "paused";
-        } else if ( cityName.toLowerCase().indexOf(inputName) != -1) {
+        } else if (cityName.toLowerCase().indexOf(inputName) != -1) {
             city.style.display = 'block';
             city.style.cursor = 'pointer';
             city.style.animation = 'bounce .8s alternate infinite ease-out';
@@ -35,16 +38,16 @@ const filterCity = () => {
 
 const triggerModal = (mycity) => {
 
-    mycity.addEventListener('click', () => {
+    mycity.addEventListener('click', async () => {
         if (isOpen == false) {
-            getMetrics(mycity.innerText);
+            await showMetrics(fetchWeather(mycity.innerText));
             dialog.showModal();
             isOpen = true;
         }
     });
     cancelButton.addEventListener('click', () => {
         dialog.close();
-        isOpen = !isOpen;
+        isOpen = false;
     });
 }
 
@@ -53,17 +56,15 @@ const getCity = (mycity) => {
     triggerModal(mycity);
 }
 
-const getMetrics = (city) => {
-
-    const apiKey = `c7eb6d72320feed6f49470cab2537dd6`;
-    const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`;
-    fetch(url)
-        .then ( data => { return data.json()})
-        .then ( res => { 
-            console.log(res)
-            const temp_max = Math.round((res.main.temp_max) - 273.15);
-            const temp_min = Math.round((res.main.temp_min) - 273.15);
-            document.getElementById('max').innerHTML = `Temp Max:  ${temp_max} C`
-            document.getElementById('min').innerHTML = `Temp Min:  ${temp_min} C`})
-        .catch ( err => { console.log(err)})
+const showMetrics = async (asyncWeatherData) => {
+    try {
+        const { main } = await asyncWeatherData;
+        const { temp_max, temp_min } = main || {};
+        const tempMax = convertToCelsius(temp_max);
+        const tempMin = convertToCelsius(temp_min);
+        document.getElementById('max').innerHTML = `Temp Max:  ${tempMax} C`
+        document.getElementById('min').innerHTML = `Temp Min:  ${tempMin} C`
+    } catch (err) {
+        console.warn(err);
+    }
 }
