@@ -1,9 +1,10 @@
-let path = require('path');
-let ExtractTextPlugin = require('extract-text-webpack-plugin');
-let extractPlugin = new ExtractTextPlugin({
-    filename: 'main.css'
-});
 
+let path = require('path');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+let extractPlugin = new MiniCssExtractPlugin({
+    filename: "main.css",
+    chunkFilename: "id.css"
+})
 
 module.exports = {
     entry: './src/js/index.js',
@@ -16,20 +17,23 @@ module.exports = {
         rules: [
             {
                 test: /\.js$/,
+                exclude: /(node_modules)/,
                 use: [
                     {
                         loader: 'babel-loader',
                         options: {
-                            presets: ['es2015']
+                            presets: ['@babel/preset-env']
                         }
-                    }
+                    },
                 ]
             },
             {
-                test: /\.scss$/,
-                use: extractPlugin.extract({
-                    use: ['css-loader', 'sass-loader']
-                })
+                test: /\.s?css$/,
+                use: [
+                    MiniCssExtractPlugin.loader,
+                    'css-loader',
+                    'sass-loader'
+                ]
             }
         ]
     },
@@ -37,3 +41,4 @@ module.exports = {
         extractPlugin
     ]
 };
+

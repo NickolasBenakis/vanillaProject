@@ -1,5 +1,6 @@
 import '../scss/main.scss';
 import fetchWeather from './api/fetchWeather';
+import "@babel/polyfill";
 
 const convertToCelsius = (Kelvintemp) => Math.round((Kelvintemp) - 273.15);
 
@@ -13,24 +14,21 @@ document.getElementById('input_form').onkeyup = () => {
 
 const filterCity = () => {
     isOpen = false;
-    const inputName = document.getElementById('input_form').value.toLowerCase();
+    const input = document.getElementById('input_form');
+    const inputName = input && input.value && input.value.toLowerCase();
+
     const cities = document.getElementsByTagName('li');
 
     Array.from(cities).forEach(city => {
 
         const cityName = city.innerText;
         if (inputName === "" || inputName === undefined) {
-            city.style.display = 'block'
-            city.style.cursor = 'default'
-            city.style.animation = '.5s alternate ease-out';
-            city.style.animationPlayState = "paused";
+            city.setAttribute("style", "display:block; cursor:default; animation:.5s alternate ease-out; animationPlayState: paused ;");
         } else if (cityName.toLowerCase().indexOf(inputName) != -1) {
-            city.style.display = 'block';
-            city.style.cursor = 'pointer';
-            city.style.animation = 'bounce .8s alternate infinite ease-out';
-            getCity(city);
+            city.setAttribute("style", "display:block; cursor:pointer; animation: bounce .8s alternate infinite ease-out;");
+            triggerModal(city);
         } else {
-            city.style.display = 'none';
+            city.setAttribute("style", "display:none;");
         }
     });
 }
@@ -39,7 +37,7 @@ const filterCity = () => {
 const triggerModal = (mycity) => {
 
     mycity.addEventListener('click', async () => {
-        if (isOpen == false) {
+        if (!isOpen) {
             await showMetrics(fetchWeather(mycity.innerText));
             dialog.showModal();
             isOpen = true;
@@ -52,9 +50,6 @@ const triggerModal = (mycity) => {
 }
 
 
-const getCity = (mycity) => {
-    triggerModal(mycity);
-}
 
 const showMetrics = async (asyncWeatherData) => {
     try {
