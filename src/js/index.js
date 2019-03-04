@@ -22,7 +22,7 @@ const filterCity = () => {
     Array.from(cities).forEach(city => {
 
         const cityName = city.innerText;
-        if (inputName === "" || inputName === undefined) {
+        if (!inputName) {
             city.setAttribute("style", "display:block; cursor:default; animation:.5s alternate ease-out; animationPlayState: paused ;");
         } else if (cityName.toLowerCase().indexOf(inputName) != -1) {
             city.setAttribute("style", "display:block; cursor:pointer; animation: bounce .8s alternate infinite ease-out;");
