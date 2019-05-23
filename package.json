@@ -7,7 +7,7 @@
     "license": "ISC",
     "scripts": {
         "start": "npm run build",
-        "test": "echo \"Error: no test specified\" && exit 1",
+        "test": "jest",
         "sass": "node-sass -w scss/ -o css/",
         "build": "webpack-dev-server --mode development --open",
         "build:prod": "webpack --mode production"
